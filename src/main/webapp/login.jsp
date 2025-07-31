@@ -1,32 +1,117 @@
+
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
     <title>Login</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        body { margin: 0; padding: 0; background: url('images/pic2.jpg') no-repeat center center/cover; font-family: 'Poppins', sans-serif; height: 100vh; display: flex; align-items: center; justify-content: center; }
-        .container-box { display: flex; width: 900px; height: 500px; border-radius: 20px; overflow: hidden; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3); background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.18); }
-        .left-form { flex: 1; padding: 40px; color: white; display: flex; flex-direction: column; justify-content: center; background-color: rgba(0,0,0,0.5); }
-        .right-img { flex: 1; background: url('images/login.jpg') no-repeat center center/cover; }
-        .form-control { background-color: rgba(255, 255, 255, 0.15); border: none; color: white; }
-        .form-control::placeholder { color: #ccc; }
-        .form-control:focus { background-color: rgba(255, 255, 255, 0.25); color: white; }
-        .btn-custom { background-color: #ffffff; color: #2980b9; font-weight: bold; }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: url('images/pic2.jpg') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            display: flex;
+            width: 800px;
+            height: 450px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+        .left-image {
+            flex: 1;
+            background: url('images/login.jpg') no-repeat center center/cover;
+        }
+        .right-form {
+            flex: 1;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: #fff;
+        }
+        .right-form h2 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            border-radius: 50px;
+            color: #fff;
+            font-size: 16px;
+        }
+        .form-group input::placeholder {
+            color: #fff;
+        }
+        .form-group input:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.3);
+             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+        .form-group input,.btn {
+           width: 100%;
+           box-sizing: border-box;
+       } 
+        .btn {
+            width: 100%;
+            padding: 10px;
+            background: #fff;
+            color: #00072D;
+            border: none;
+            border-radius: 250px;
+            font-size: 16px;
+            cursor: pointer;
+            
+        }
+        .btn:hover {
+            background: #D3D3D3;
+             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+        .footer-text {
+            margin-top: 15px;
+            text-align: center;
+        }
+        .footer-text a {
+            color: #fff;
+            text-decoration: underline;
+        }
+        .footer-text a:hover {
+            text-decoration: underline;
+            
+        }
     </style>
 </head>
 <body>
-<div class="container-box">
-    <div class="left-form">
-        <h2>Login</h2>
-        <form action="${pageContext.request.contextPath}/login" method="post">
-            <div class="mb-3"><input type="email" name="email" class="form-control" placeholder="Email" required></div>
-            <div class="mb-4"><input type="password" name="password" class="form-control" placeholder="Password" required></div>
-            <button type="submit" class="btn btn-custom w-100">Login</button>
-            <div class="mt-3 text-center"><p style="color: #fff;">No account yet? <a href="register.jsp" style="color: #00f; text-decoration: underline;">Register here</a></p></div>
-        </form>
+    <div class="container">
+        <div class="left-image"></div>
+        <div class="right-form">
+            <h2>Login</h2>
+            <form action="${pageContext.request.contextPath}/login" method="post">
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" name="password" placeholder="Password" required>
+                </div>
+                <button type="submit" class="btn">Login</button>
+                <div class="footer-text">
+                    <p>No account? <a href="register.jsp">Register here</a></p>
+                </div>
+            </form>
+        </div>
     </div>
-    <div class="right-img"></div>
-</div>
 </body>
 </html>
